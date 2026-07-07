@@ -6,24 +6,36 @@
   
   <body id="body1" width="100%" height="100%" style="background-color:#3d3d3d;">
     <p>
-    <a href="/70403">Roll the Ball</a><br>
-    <a href="https://beaneth-iii.itch.io/roll-the-ball">Roll the Ball (Itch.io)</a><br>
-    <a href="/391">Platformer (Demo)</a><br>
+    <a id="link1" href="/70403" style="color:rgb(255,255,255);">Roll the Ball</a><br>
+    <a id="link2" href="https://beaneth-iii.itch.io/roll-the-ball" style="color:rgb(255,255,255);">Roll the Ball (Itch.io)</a><br>
+    <a id="link3" href="/391" style="color:rgb(255,255,255);">Platformer (Demo)</a><br>
     </p>
     <script>
       var body = document.getElementById("body1");
+      var link1 = document.getElementById("link1");
+      var link2 = document.getElementById("link2");
+      var link3 = document.getElementById("link3");
       var bgcolor1 = 0;
       var bgcolor2 = 0;
       var bgcolor3 = 0;
-      function changebg(){
-        bgcolor1 = Math.floor(Math.random() * 256);
-        bgcolor2 = Math.floor(Math.random() * 256);
-        bgcolor3 = Math.floor(Math.random() * 256);
+      var txtcolor1 = 0;
+      var txtcolor2 = 0;
+      var txtcolor3 = 0;
+      function changeColor(){
+        bgcolor1 = Math.round(Math.floor(Math.random() * 256));
+        bgcolor2 = Math.round(Math.floor(Math.random() * 256));
+        bgcolor3 = Math.round(Math.floor(Math.random() * 256));
+        txtcolor1 = Math.abs(255 - bgcolor1);
+        txtcolor2 = Math.abs(255 - bgcolor2);
+        txtcolor3 = Math.abs(255 - bgcolor3);
         body.style.backgroundColor = `rgb(${Math.round(bgcolor1)}, ${Math.round(bgcolor2)}, ${Math.round(bgcolor3)})`
+        link1.style.color = `rgb(${Math.round(txtcolor1)}, ${Math.round(txtcolor2)}, ${Math.round(txtcolor3)})`
+        link2.style.color = `rgb(${Math.round(txtcolor1)}, ${Math.round(txtcolor2)}, ${Math.round(txtcolor3)})`
+        link3.style.color = `rgb(${Math.round(txtcolor1)}, ${Math.round(txtcolor2)}, ${Math.round(txtcolor3)})`
       }
       
-      body.addEventListener('click', changebg)
-      body.onclick = changebg
+      body.addEventListener('click', changeColor)
+      body.onclick = changeColor
     </script>
   </body>
 </html>
