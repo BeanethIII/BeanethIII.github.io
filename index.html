@@ -17,27 +17,20 @@
       var link1 = document.getElementById("link1");
       var link2 = document.getElementById("link2");
       var link3 = document.getElementById("link3");
-      var bgcolor1 = 0;
-      var bgcolor2 = 0;
-      var bgcolor3 = 0;
-      var txtcolor1 = 0;
-      var txtcolor2 = 0;
-      var txtcolor3 = 0;
+      var bgcolor = [Float64Array,Float64Array,Float64Array];
+      var txtcolor = [Float64Array,Float64Array,Float64Array];
       function changeColor(){
-        bgcolor1 = Math.round(Math.floor(Math.random() * 256));
-        bgcolor2 = Math.round(Math.floor(Math.random() * 256));
-        bgcolor3 = Math.round(Math.floor(Math.random() * 256));
-        txtcolor1 = Math.abs(255 - bgcolor1);
-        txtcolor2 = Math.abs(255 - bgcolor2);
-        txtcolor3 = Math.abs(255 - bgcolor3);
-        body.style.backgroundColor = `rgb(${Math.round(bgcolor1)}, ${Math.round(bgcolor2)}, ${Math.round(bgcolor3)})`
-        link1.style.color = `rgb(${Math.round(txtcolor1)}, ${Math.round(txtcolor2)}, ${Math.round(txtcolor3)})`
-        link2.style.color = `rgb(${Math.round(txtcolor1)}, ${Math.round(txtcolor2)}, ${Math.round(txtcolor3)})`
-        link3.style.color = `rgb(${Math.round(txtcolor1)}, ${Math.round(txtcolor2)}, ${Math.round(txtcolor3)})`
+        bgcolor = [Math.round(Math.floor(Math.random() * 256)),Math.round(Math.floor(Math.random() * 256)),Math.round(Math.floor(Math.random() * 256))];
+        txtcolor = [Math.round(Math.abs(255 - bgcolor[0])),Math.round(Math.abs(255 - bgcolor[1])),Math.round(Math.abs(255 - bgcolor[2]))];
+        body.style.backgroundColor = `rgb(${bgcolor[0]}, ${bgcolor[1]},${bgcolor[2]})`;
+        link1.style.color = `rgb(${txtcolor[0]}, ${txtcolor[1]},${txtcolor[2]})`;
+        link2.style.color = `rgb(${txtcolor[0]}, ${txtcolor[1]},${txtcolor[2]})`;
+        link3.style.color = `rgb(${txtcolor[0]}, ${txtcolor[1]},${txtcolor[2]})`;
       }
       
       body.addEventListener('click', changeColor)
       body.onclick = changeColor
+      //${txtcolor[0]}, ${txtcolor[1]},${txtcolor[2]}
     </script>
   </body>
 </html>
